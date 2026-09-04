@@ -13,15 +13,13 @@ def main():
     display_inventory(inventory)#this updtates the inventory by calling the display_inventory function
 #this allows the user top input a product  and chcks the availability of the product in the inventory
     product = input('\nEnter the product name to check availability: ').strip()
-    if product not in inventory:
-        print(f'{product} is not available in the inventory.')
-        return
-    if inventory[product] <= 0:
-        print(f'{product} is out of stock.')
-        return
-    else:
+    if product in inventory and inventory[product] > 0: 
         print(f'{product} is available with quantity: {inventory[product]}')
-    """
+    elif product in inventory:
+        print(f'{product} is out of stock.')
+    else:
+        print(f'{product} is not available in the inventory.') 
+        """
  #this allows the user to input the quantity 
 of the product sold and checks if the quantity 
 sold is valid and updates the inventory accordingly
